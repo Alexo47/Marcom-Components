@@ -1,0 +1,15 @@
+# Ignore specific folders in the root directory
+Modules/
+xArchiv/
+LOGS/
+
+# Ignore specific files in the root directory
+token.json
+
+
+# Allow all files and directories except the ones specified above
+!.gitignore
+!Programs/**
+
+# Ignore the Archv subfolder inside Programs
+Programs/Archv/
