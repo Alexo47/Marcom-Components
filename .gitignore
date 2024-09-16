@@ -12,4 +12,4 @@ token.json
 !Programs/**
 
 # Ignore the Archv subfolder inside Programs
-Programs/Archv/
+Programs/xArchv/

@@ -10,8 +10,8 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "marcomapp"  # Change this to your actual password
 
 # File paths
-CSV_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-DB\DATA'
-LOG_FILE_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-DB\log-marco_tags-operations.csv'
+CSV_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-Components\DATA'
+LOG_FILE_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-Components\SWDEV\LOGS\log-marco_tags-operations.csv'
 
 def prompt_for_file():
     """

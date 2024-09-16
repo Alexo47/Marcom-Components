@@ -19,8 +19,8 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "marcomapp"  # Change this to your actual password
 
 # File paths
-CSV_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-DB\DATA\Notion-Exported'
-LOG_FILE_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-DB\log-marcom-components_operations.csv'
+CSV_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-Components\DATA\Notion-Exported'
+LOG_FILE_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-Components\SWDEV\LOGS\log-marcom-components_operations.csv'
 
 # Google Drive API settings
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']

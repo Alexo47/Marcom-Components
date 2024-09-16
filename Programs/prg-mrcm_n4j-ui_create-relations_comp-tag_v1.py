@@ -13,7 +13,7 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "marcomapp"
 
 # Log file path
-LOG_FILE_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-DB\log-marcom_comp-relation-tag_operations.csv'
+LOG_FILE_PATH = r'D:\##ITD2\#SWDEV-Projects\Marcom-Components\SWDEV\LOGS\log-marcom_comp-relation-tag_operations.csv'
 
 # Explicit set for filter words
 FILTER_WORDS = {'a', 'an', 'the', 'my', 'i'}
