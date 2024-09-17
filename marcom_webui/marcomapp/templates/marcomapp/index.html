@@ -1,0 +1,258 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marcom Components Search</title>
+
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Search for Marcom Components</h1>
+
+    <!-- Filter Section -->
+    <form method="get" action="{% url 'index' %}">
+      <fieldset>
+        <legend>Filter by Component Properties:</legend>
+
+        <!-- Filter by Domain -->
+        <div class="filter-group">
+          <label for="comp_domain">Domain:</label>
+          <div>
+            <input
+              type="checkbox"
+              id="domain_prompt"
+              name="comp_domain"
+              value="PROMPT"
+            />
+            PROMPT
+            <input
+              type="checkbox"
+              id="domain_appswe"
+              name="comp_domain"
+              value="APP-SWE"
+            />
+            APP-SWE
+            <input
+              type="checkbox"
+              id="domain_dgtlx"
+              name="comp_domain"
+              value="DGTLX"
+            />
+            DGTLX
+            <input
+              type="checkbox"
+              id="domain_growth"
+              name="comp_domain"
+              value="GROWTH"
+            />
+            GROWTH
+            <input
+              type="checkbox"
+              id="domain_fintk"
+              name="comp_domain"
+              value="FINTK"
+            />
+            FINTK
+            <input
+              type="checkbox"
+              id="domain_process"
+              name="comp_domain"
+              value="PROCESS"
+            />
+            PROCESS
+            <input
+              type="checkbox"
+              id="domain_adprofile"
+              name="comp_domain"
+              value="AD-PROFILE"
+            />
+            AD-PROFILE
+          </div>
+        </div>
+
+        <!-- Filter by About -->
+        <div class="filter-group">
+          <label for="comp_about">About:</label>
+          <div>
+            <input type="checkbox" id="about_ad" name="comp_about" value="AD" />
+            AD
+            <input
+              type="checkbox"
+              id="about_ciad"
+              name="comp_about"
+              value="CIAD"
+            />
+            CIAD
+            <input
+              type="checkbox"
+              id="about_itd2"
+              name="comp_about"
+              value="ITD2"
+            />
+            ITD2
+            <input
+              type="checkbox"
+              id="about_palma"
+              name="comp_about"
+              value="PALMA$$"
+            />
+            PALMA$$
+            <input
+              type="checkbox"
+              id="about_sfena"
+              name="comp_about"
+              value="SFENA"
+            />
+            SFENA
+            <input
+              type="checkbox"
+              id="about_slb"
+              name="comp_about"
+              value="SLB"
+            />
+            SLB
+            <input
+              type="checkbox"
+              id="about_trt"
+              name="comp_about"
+              value="TRT"
+            />
+            TRT
+          </div>
+        </div>
+
+        <!-- Filter by Context -->
+        <div class="filter-group">
+          <label for="comp_context">Context:</label>
+          <div>
+            <input
+              type="checkbox"
+              id="context_caseexp"
+              name="comp_context"
+              value="Case-Experience"
+            />
+            Case-Experience
+            <input
+              type="checkbox"
+              id="context_submission"
+              name="comp_context"
+              value="Submission"
+            />
+            Submission
+            <input
+              type="checkbox"
+              id="context_capexp"
+              name="comp_context"
+              value="Capability-Expertise"
+            />
+            Capability-Expertise
+            <input
+              type="checkbox"
+              id="context_valueprop"
+              name="comp_context"
+              value="Value-Proposal"
+            />
+            Value-Proposal
+            <input
+              type="checkbox"
+              id="context_serviceoffer"
+              name="comp_context"
+              value="Service-Offer"
+            />
+            Service-Offer
+            <input
+              type="checkbox"
+              id="context_profiledesc"
+              name="comp_context"
+              value="Profile Description"
+            />
+            Profile Description
+          </div>
+        </div>
+
+        <!-- Filter by Size -->
+        <div class="filter-group">
+          <label for="comp_size">Size:</label>
+          <div>
+            <input
+              type="radio"
+              id="size_bullet"
+              name="comp_size"
+              value="bullet"
+            />
+            Bullet (<= 50 chars)
+            <input
+              type="radio"
+              id="size_summary"
+              name="comp_size"
+              value="summary"
+            />
+            Summary (<= 500 chars)
+            <input
+              type="radio"
+              id="size_description"
+              name="comp_size"
+              value="description"
+            />
+            Description (<= 1000 chars)
+            <input
+              type="radio"
+              id="size_overview"
+              name="comp_size"
+              value="overview"
+            />
+            Overview (<= 3000 chars)
+          </div>
+        </div>
+
+        <!-- Search Button -->
+        <button type="submit">Search</button>
+      </fieldset>
+    </form>
+
+    <!-- Results Section -->
+    <div id="results">
+      <h2>Search Results:</h2>
+      <!-- The search results will be dynamically inserted here -->
+      {% if components %}
+      <table>
+        <thead>
+          <tr>
+            <th>Component Name</th>
+            <th>Domain</th>
+            <th>About</th>
+            <th>Context</th>
+            <th>Size</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for component in components %}
+          <tr>
+            <td>{{ component.comp_name }}</td>
+            <td>{{ component.comp_domain }}</td>
+            <td>{{ component.comp_about }}</td>
+            <td>{{ component.comp_context }}</td>
+            <td>{{ component.comp_size }}</td>
+            <td>
+              <button onclick="showContent('{{ component.comp_content }}')">
+                View Content
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>No components found.</p>
+      {% endif %}
+    </div>
+
+    <!-- Link to the external JS file -->
+    <script src="{% static 'js/scripts.js' %}"></script>
+  </body>
+</html>
