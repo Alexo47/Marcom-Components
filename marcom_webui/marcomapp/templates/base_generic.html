@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}My Application{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1>Marcom Components</h1>
+    </header>
+    <nav>
+      <!-- Navigation bar content here -->
+      <a href="{% url 'index' %}">Home</a>
+    </nav>
+    <main>
+      {% block content %}
+      <!-- Default content if none is provided -->
+      {% endblock %}
+    </main>
+    <footer>
+      <!-- Footer content -->
+      <p>&copy; 2024 My Application</p>
+    </footer>
+  </body>
+</html>
