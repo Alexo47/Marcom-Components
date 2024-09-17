@@ -1,0 +1,8 @@
+{% extends 'base_generic.html' %} {% load static %} {% block content %}
+<h1>Component Content</h1>
+<pre>{{ content }}</pre>
+<button onclick="copyToClipboard()">Copy</button>
+
+<!-- Link to the external JavaScript file -->
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
