@@ -1,0 +1,22 @@
+.filter-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filter-group label {
+  min-width: 80px; /* Adjust width as needed */
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.filter-group input[type="checkbox"],
+.filter-group input[type="radio"] {
+  margin-right: 5px;
+}
+
+.filter-group div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
