@@ -1,110 +1,120 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Component Search</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-  </head>
-  <body>
-    <h1>Search Components</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcom Components</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1 style="background-color: navy; color: white;">Marcom Components</h1>
+    </header>
 
-    <!-- Filter Selection Form -->
-    <form method="get" action="{% url 'index' %}">
-      <div>
-        <label>Domain:</label>
-        <input type="checkbox" name="comp_domain" value="PROMPT" /> PROMPT
-        <input type="checkbox" name="comp_domain" value="APP-SWE" /> APP-SWE
-        <input type="checkbox" name="comp_domain" value="DGTLX" /> DGTLX
-        <input type="checkbox" name="comp_domain" value="GROWTH" /> GROWTH
-        <input type="checkbox" name="comp_domain" value="FINTK" /> FINTK
-        <input type="checkbox" name="comp_domain" value="PROCESS" /> PROCESS
-        <input type="checkbox" name="comp_domain" value="AD-PROFILE" />
-        AD-PROFILE
-      </div>
+    <!-- Filters Section -->
+    <form method="GET" action="/" id="search-form">
+        <!-- Domain filter -->
+        <div class="filter">
+            <label>Domain:</label><br />
+            <label><input type="checkbox" name="comp_domain" value="PROMPT">PROMPT</label>
+            <label><input type="checkbox" name="comp_domain" value="APP-SWE">APP-SWE</label>
+            <label><input type="checkbox" name="comp_domain" value="DGTLX">DGTLX</label>
+            <label><input type="checkbox" name="comp_domain" value="GROWTH">GROWTH</label>
+            <label><input type="checkbox" name="comp_domain" value="FINTK">FINTK</label>
+            <label><input type="checkbox" name="comp_domain" value="PROCESS">PROCESS</label>
+            <label><input type="checkbox" name="comp_domain" value="AD-PROFILE">AD-PROFILE</label>
+        </div>
 
-      <div>
-        <label>About:</label>
-        <input type="checkbox" name="comp_about" value="AD" /> AD
-        <input type="checkbox" name="comp_about" value="CIAD" /> CIAD
-        <input type="checkbox" name="comp_about" value="ITD2" /> ITD2
-        <input type="checkbox" name="comp_about" value="PALMA$$" /> PALMA$$
-        <input type="checkbox" name="comp_about" value="SFENA" /> SFENA
-        <input type="checkbox" name="comp_about" value="SLB" /> SLB
-        <input type="checkbox" name="comp_about" value="TRT" /> TRT
-      </div>
+        <!-- About filter -->
+        <div class="filter">
+            <label>About:</label><br />
+            <label><input type="checkbox" name="comp_about" value="AD">AD</label>
+            <label><input type="checkbox" name="comp_about" value="CIAD">CIAD</label>
+            <label><input type="checkbox" name="comp_about" value="ITD2">ITD2</label>
+            <label><input type="checkbox" name="comp_about" value="PALMA$$">PALMA$$</label>
+            <label><input type="checkbox" name="comp_about" value="SFENA">SFENA</label>
+            <label><input type="checkbox" name="comp_about" value="SLB">SLB</label>
+            <label><input type="checkbox" name="comp_about" value="TRT">TRT</label>
+        </div>
 
-      <div>
-        <label>Context:</label>
-        <input type="checkbox" name="comp_context" value="Case-Experience" />
-        Case-Experience
-        <input type="checkbox" name="comp_context" value="Submission" />
-        Submission
-        <input
-          type="checkbox"
-          name="comp_context"
-          value="Capability-Expertise"
-        />
-        Capability-Expertise
-        <input type="checkbox" name="comp_context" value="Value-Proposal" />
-        Value-Proposal
-        <input type="checkbox" name="comp_context" value="Service-Offer" />
-        Service-Offer
-        <input
-          type="checkbox"
-          name="comp_context"
-          value="Profile Description"
-        />
-        Profile Description
-      </div>
+        <!-- Context filter -->
+        <div class="filter">
+            <label>Context:</label><br />
+            <label><input type="checkbox" name="comp_context" value="Case-Experience">Case-Experience</label>
+            <label><input type="checkbox" name="comp_context" value="Submission">Submission</label>
+            <label><input type="checkbox" name="comp_context" value="Capability-Expertise">Capability-Expertise</label>
+            <label><input type="checkbox" name="comp_context" value="Value-Proposal">Value-Proposal</label>
+            <label><input type="checkbox" name="comp_context" value="Service-Offer">Service-Offer</label>
+            <label><input type="checkbox" name="comp_context" value="Profile Description">Profile Description</label>
+        </div>
 
-      <div>
-        <label>Size:</label>
-        <input type="radio" name="comp_size" value="bullet" /> Bullet (<= 50
-        characters)
-        <input type="radio" name="comp_size" value="summary" /> Summary (<= 500
-        characters)
-        <input type="radio" name="comp_size" value="description" /> Description
-        (<= 1000 characters)
-        <input type="radio" name="comp_size" value="overview" /> Overview (<=
-        3000 characters)
-      </div>
+        <!-- Size filter (radio buttons) -->
+        <div class="filter">
+            <label>Size:</label><br />
+            <label><input type="radio" name="comp_size" value="bullet">Bullet (up to 50)</label>
+            <label><input type="radio" name="comp_size" value="summary">Summary (up to 500)</label>
+            <label><input type="radio" name="comp_size" value="description">Description (up to 1000)</label>
+            <label><input type="radio" name="comp_size" value="overview">Overview (up to 3000)</label>
+        </div>
 
-      <button type="submit" name="search">Search</button>
+        <!-- Submit button -->
+        <button type="submit" style="background-color: green; color: white; padding: 10px 20px;">Search</button>
     </form>
 
-    <!-- Display Results -->
-    <h2>Results</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Domain</th>
-          <th>About</th>
-          <th>Context</th>
-          <th>Size</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for component in components %}
-        <tr>
-          <td>{{ component.name }}</td>
-          <td>{{ component.domain }}</td>
-          <td>{{ component.about }}</td>
-          <td>{{ component.context }}</td>
-          <td>{{ component.size }}</td>
-          <td>
-            <!-- Generate the URL first and store it in a variable -->
-            {% url 'view_component' component.key as view_component_url %}
-            <button onclick="window.open('{{ view_component_url }}', '_blank')">
-              Activate
-            </button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </body>
+    <!-- Search Results -->
+    {% if components %}
+        <table>
+            <thead style="background-color: green; color: white;">
+                <tr>
+                    <th>Name</th>
+                    <th>Domain</th>
+                    <th>About</th>
+                    <th>Context</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for component in components %}
+                <tr>
+                    <td class="clickable"
+                        onclick="openModal('{{ component.name|escapejs }}',
+                                           '{{ component.domain|escapejs }}',
+                                           '{{ component.about|escapejs }}',
+                                           '{{ component.context|escapejs }}',
+                                           '{{ component.size|escapejs }}',
+                                           '{{ component.content|escapejs }}')">
+                        {{ component.name }}
+                    </td>
+                    <td>{{ component.domain }}</td>
+                    <td>{{ component.about }}</td>
+                    <td>{{ component.context }}</td>
+                    <td>{{ component.size }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No components found. Please use the filters and search again.</p>
+    {% endif %}
+
+    <!-- Modal for component details -->
+    <div id="componentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="componentTitle"></h2>
+            <p><strong>Domain:</strong> <span id="componentDomain"></span></p>
+            <p><strong>About:</strong> <span id="componentAbout"></span></p>
+            <p><strong>Context:</strong> <span id="componentContext"></span></p>
+            <p><strong>Size:</strong> <span id="componentSize"></span></p>
+            <div class="component-content">
+                <h3>Content:</h3>
+                <p id="componentContent"></p>
+                <button id="copyButton" onclick="copyToClipboard()">Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
 </html>

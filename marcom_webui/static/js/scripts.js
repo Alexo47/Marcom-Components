@@ -1,18 +1,30 @@
-function showContent(content) {
-  const popup = window.open("", "Component Content", "width=600,height=400");
-  popup.document.write("<pre>" + content + "</pre>");
-  popup.document.write('<button onclick="window.close()">Close</button>');
+// Function to open the modal and display component details
+function openModal(name, domain, about, context, size, content) {
+  document.getElementById("componentTitle").innerHTML = name;
+  document.getElementById("componentDomain").innerHTML = domain;
+  document.getElementById("componentAbout").innerHTML = about;
+  document.getElementById("componentContext").innerHTML = context;
+  document.getElementById("componentSize").innerHTML = size;
+  document.getElementById("componentContent").innerHTML = content;
+
+  // Open the modal
+  var modal = document.getElementById("componentModal");
+  modal.style.display = "block";
 }
 
-// JavaScript function for copying content to clipboard
+// Function to close the modal
+function closeModal() {
+  var modal = document.getElementById("componentModal");
+  modal.style.display = "none";
+}
+
+// Function to copy content to clipboard
 function copyToClipboard() {
-  const content = document.querySelector("pre").innerText; // Get the content from the <pre> tag
-  navigator.clipboard.writeText(content).then(
-    function () {
-      alert("Content copied to clipboard");
-    },
-    function (err) {
-      alert("Failed to copy content: ", err);
-    }
-  );
+  var content = document.getElementById("componentContent").innerHTML;
+  var textarea = document.createElement("textarea");
+  textarea.value = content;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
 }

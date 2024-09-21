@@ -13,3 +13,16 @@ token.json
 
 # Ignore the Archv subfolder inside Programs
 Programs/xArchv/
+
+# Ignore database
+db.sqlite3
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore virtual environment (if you create one)
+venv/
+
+# Ignore token files or sensitive files
+../Programs/token.json
