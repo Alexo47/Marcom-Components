@@ -6,6 +6,8 @@ LOGS/
 # Ignore specific files in the root directory
 token.json
 
+# Ignore token files or sensitive files inside Programs folder
+Programs/token.json
 
 # Allow all files and directories except the ones specified above
 !.gitignore
@@ -23,6 +25,3 @@ __pycache__/
 
 # Ignore virtual environment (if you create one)
 venv/
-
-# Ignore token files or sensitive files
-../Programs/token.json
