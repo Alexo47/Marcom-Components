@@ -12,91 +12,102 @@
         <h1 style="background-color: navy; color: white;">Marcom Components</h1>
     </header>
 
-    <!-- Filters Section -->
-    <form method="GET" action="/" id="search-form">
-        <!-- Domain filter -->
-        <div class="filter">
-            <label>Domain:</label><br />
-            <label><input type="checkbox" name="comp_domain" value="PROMPT">PROMPT</label>
-            <label><input type="checkbox" name="comp_domain" value="APP-SWE">APP-SWE</label>
-            <label><input type="checkbox" name="comp_domain" value="DGTLX">DGTLX</label>
-            <label><input type="checkbox" name="comp_domain" value="GROWTH">GROWTH</label>
-            <label><input type="checkbox" name="comp_domain" value="FINTK">FINTK</label>
-            <label><input type="checkbox" name="comp_domain" value="PROCESS">PROCESS</label>
-            <label><input type="checkbox" name="comp_domain" value="AD-PROFILE">AD-PROFILE</label>
-        </div>
+    <section>
+      <!-- Filters Section -->
+      <h2>Filters Selection</h2>
+      <form method="GET" action="/" id="search-form">
+          <!-- Domain filter -->
+          <div class="filter-group">
+            <!-- Domain row -->
+            <div class="label-group filter-label">Domain:</div>
+            <div class="filter-value"><input type="checkbox" name="comp_domain" value="PROMPT"><label>PROMPT</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_domain" value="APP-SWE"><label>APP-SWE</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_domain" value="DGTLX"><label>DGTLX</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_domain" value="GROWTH"><label>GROWTH</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_domain" value="FINTK"><label>FINTK</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_domain" value="PROCESS"><label>PROCESS</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_domain" value="AD-PROFILE"><label>AD-PROFILE</label></div>
+          
+            <!-- About row -->
+            <div class="label-group filter-label">About:</div>
+            <div class="filter-value"><input type="checkbox" name="comp_about" value="AD"><label>AD</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_about" value="CIAD"><label>CIAD</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_about" value="ITD2"><label>ITD2</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_about" value="PALMA$$"><label>PALMA$$</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_about" value="SFENA"><label>SFENA</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_about" value="SLB"><label>SLB</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_about" value="TRT"><label>TRT</label></div>
+          
+            <!-- Context row -->
+            <div class="label-group filter-label">Context:</div>
+            <div class="filter-value"><input type="checkbox" name="comp_context" value="Case-Experience"><label>Case-Experience</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_context" value="Submission"><label>Submission</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_context" value="Capability-Expertise"><label>Capability-Expertise</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_context" value="Value-Proposal"><label>Value-Proposal</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_context" value="Service-Offer"><label>Service-Offer</label></div>
+            <div class="filter-value"><input type="checkbox" name="comp_context" value="Profile Description"><label>Profile Description</label></div>
+            <div class="filter-value"></div> <!-- Blank cell for alignment -->
+          </div>
+          
 
-        <!-- About filter -->
-        <div class="filter">
-            <label>About:</label><br />
-            <label><input type="checkbox" name="comp_about" value="AD">AD</label>
-            <label><input type="checkbox" name="comp_about" value="CIAD">CIAD</label>
-            <label><input type="checkbox" name="comp_about" value="ITD2">ITD2</label>
-            <label><input type="checkbox" name="comp_about" value="PALMA$$">PALMA$$</label>
-            <label><input type="checkbox" name="comp_about" value="SFENA">SFENA</label>
-            <label><input type="checkbox" name="comp_about" value="SLB">SLB</label>
-            <label><input type="checkbox" name="comp_about" value="TRT">TRT</label>
-        </div>
+          <!-- Size filter (radio buttons) -->
+          <div class="filter-radio">
+            <label class="filter-label">Size:</label>
+            <div class="radio-value"><input type="radio" name="comp_size" value="bullet">Bullet <span class="small-text">{&lt; 50}</span></div>
+            <div class="radio-value"><input type="radio" name="comp_size" value="summary">Summary <span class="small-text">{&lt; 500}</span></div>
+            <div class="radio-value"><input type="radio" name="comp_size" value="description">Description <span class="small-text">{&lt; 1000}</span></div>
+            <div class="radio-value"><input type="radio" name="comp_size" value="overview">Overview <span class="small-text">{&lt; 3000}</span></div>
+          </div>
 
-        <!-- Context filter -->
-        <div class="filter">
-            <label>Context:</label><br />
-            <label><input type="checkbox" name="comp_context" value="Case-Experience">Case-Experience</label>
-            <label><input type="checkbox" name="comp_context" value="Submission">Submission</label>
-            <label><input type="checkbox" name="comp_context" value="Capability-Expertise">Capability-Expertise</label>
-            <label><input type="checkbox" name="comp_context" value="Value-Proposal">Value-Proposal</label>
-            <label><input type="checkbox" name="comp_context" value="Service-Offer">Service-Offer</label>
-            <label><input type="checkbox" name="comp_context" value="Profile Description">Profile Description</label>
-        </div>
 
-        <!-- Size filter (radio buttons) -->
-        <div class="filter">
-            <label>Size:</label><br />
-            <label><input type="radio" name="comp_size" value="bullet">Bullet (up to 50)</label>
-            <label><input type="radio" name="comp_size" value="summary">Summary (up to 500)</label>
-            <label><input type="radio" name="comp_size" value="description">Description (up to 1000)</label>
-            <label><input type="radio" name="comp_size" value="overview">Overview (up to 3000)</label>
-        </div>
 
-        <!-- Submit button -->
-        <button type="submit" style="background-color: green; color: white; padding: 10px 20px;">Search</button>
-    </form>
-
-    <!-- Search Results -->
-    {% if components %}
-        <table>
-            <thead style="background-color: green; color: white;">
-                <tr>
-                    <th>Name</th>
-                    <th>Domain</th>
-                    <th>About</th>
-                    <th>Context</th>
-                    <th>Size</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for component in components %}
-                <tr>
-                    <td class="clickable"
-                        onclick="openModal('{{ component.name|escapejs }}',
-                                           '{{ component.domain|escapejs }}',
-                                           '{{ component.about|escapejs }}',
-                                           '{{ component.context|escapejs }}',
-                                           '{{ component.size|escapejs }}',
-                                           '{{ component.content|escapejs }}')">
-                        {{ component.name }}
-                    </td>
-                    <td>{{ component.domain }}</td>
-                    <td>{{ component.about }}</td>
-                    <td>{{ component.context }}</td>
-                    <td>{{ component.size }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No components found. Please use the filters and search again.</p>
-    {% endif %}
+          <!-- Submit button -->
+          <div class="search-container">
+            <button type="submit" class="search-btn">Search Components!</button>
+          </div>
+          
+      </form>
+    </section>
+        <!-- Table for results -->
+  <section>
+    <h2>Search Results</h2>
+    <table class="result-table">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Domain</th>
+              <th>About</th>
+              <th>Context</th>
+              <th>Size</th>
+          </tr>
+        </thead>
+          <tbody>
+            {% if components %}
+              {% for component in components %}
+            <tr>
+                <td class="clickable"
+                    onclick="openModal('{{ component.name|escapejs }}',
+                                        '{{ component.domain|escapejs }}',
+                                        '{{ component.about|escapejs }}',
+                                        '{{ component.context|escapejs }}',
+                                        '{{ component.size|escapejs }}',
+                                        '{{ component.content|escapejs }}')">
+                    {{ component.name }}
+                </td>
+                <td>{{ component.domain }}</td>
+                <td>{{ component.about }}</td>
+                <td>{{ component.context }}</td>
+                <td>{{ component.size }}</td>
+              </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                  <td colspan="5">No components found.</td>
+              </tr>
+          {% endif %}
+      </tbody>
+    </table>
+  </section>
 
     <!-- Modal for component details -->
     <div id="componentModal" class="modal">
