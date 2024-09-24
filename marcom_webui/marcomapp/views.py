@@ -14,6 +14,7 @@ def index(request):
     Render the index page and handle search requests only when the user clicks the 'Search' button.
     """
     components = []  # Initialize an empty list to store the results
+    applied_filters = {}
 
     # Check if the request is a search request (i.e., triggered by the 'Search' button)
     if request.GET:
@@ -29,19 +30,29 @@ def index(request):
         # Add conditions based on selected filters
         if domain:
             conditions.append(f"c.comp_domain IN {domain}")
+            applied_filters['Domain'] = ', '.join(domain)
+
         if about:
             conditions.append(f"c.comp_about IN {about}")
+            applied_filters['About'] = ', '.join(about)
+
         if context:
             conditions.append(f"c.comp_context IN {context}")
+            applied_filters['Context'] = ', '.join(context)
+
         if size:
             if size == "bullet":
                 conditions.append("c.comp_size <= 50")
+                applied_filters['Size'] = "Bullet (<50)"
             elif size == "summary":
                 conditions.append("c.comp_size <= 500")
+                applied_filters['Size'] = "Summary (<500)"
             elif size == "description":
                 conditions.append("c.comp_size <= 1000")
+                applied_filters['Size'] = "Description (<1000)"
             elif size == "overview":
                 conditions.append("c.comp_size <= 3000")
+                applied_filters['Size'] = "Overview (<3000)"
 
         # If conditions exist, append them to the query
         if conditions:
@@ -60,8 +71,8 @@ def index(request):
         with driver.session() as session:
             components = session.run(query).data()
 
-    # Render the template with the results
-    return render(request, 'marcomapp/index.html', {'components': components})
+    # Render the template with the results and applied filters
+    return render(request, 'marcomapp/index.html', {'components': components, 'applied_filters': applied_filters})
 
 def view_component(request, comp_key):
     """

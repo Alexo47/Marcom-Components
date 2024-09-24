@@ -87,6 +87,7 @@ nav {
   font-size: 1rem; /* Font size */
   cursor: pointer; /* Show pointer on hover */
   display: inline-block; /* Ensure it's treated like a button */
+  text-align: center;
 }
 
 .search-btn:hover {

@@ -63,7 +63,7 @@
 
           <!-- Submit button -->
           <div class="search-container">
-            <button type="submit" class="search-btn">Search Components!</button>
+            <button type="submit" class="search-btn">Search Components !</button>
           </div>
           
       </form>
@@ -71,6 +71,21 @@
         <!-- Table for results -->
   <section>
     <h2>Search Results</h2>
+
+    <!-- Applied Filters Display -->
+    <div id="applied-filters">
+      {% if applied_filters %}
+          <p><strong>Applied Filters:</strong></p>
+          <ul>
+              {% for filter_name, filter_value in applied_filters.items %}
+                  <li><strong>{{ filter_name }}:</strong> {{ filter_value }}</li>
+              {% endfor %}
+          </ul>
+      {% else %}
+          <p><strong>Unfiltered Results</strong></p>
+      {% endif %}
+    </div>
+
     <table class="result-table">
         <thead>
           <tr>
