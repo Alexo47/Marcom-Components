@@ -79,7 +79,7 @@ nav {
 }
 
 .search-btn {
-  background-color: navy; /* Set navy background */
+  background-color: purple; /* Set navy background */
   color: white; /* White text color */
   padding: 10px 20px; /* Padding for the button */
   border: none; /* Remove border */
@@ -100,24 +100,41 @@ nav {
 }
 
 
-* Table Styles */
+/* Table Styles */
 .result-table {
-  width: 100%;
+  width: 100%; /* Ensures the table takes up the full width */
   border-collapse: collapse;
   margin-top: 20px;
+  table-layout: fixed; /* Enforces fixed column widths */
 }
 
 .result-table th {
   background-color: green;
   color: white;
   padding: 10px;
+  border: 1px solid #ddd;
   text-align: left;
 }
 
 .result-table td {
   padding: 10px;
   border: 1px solid #ddd;
+  text-align: left;
 }
+
+/* Column widths: 40% for Name, 60% evenly split across the other columns */
+.result-table th:nth-child(1), .result-table td:nth-child(1) {
+  width: 40%; /* 40% for the first column (Name) */
+}
+
+.result-table th:nth-child(2), .result-table td:nth-child(2),
+.result-table th:nth-child(3), .result-table td:nth-child(3),
+.result-table th:nth-child(4), .result-table td:nth-child(4),
+.result-table th:nth-child(5), .result-table td:nth-child(5) {
+  width: 15%; /* Remaining 60% evenly distributed */
+}
+
+
 
 .clickable {
   cursor: pointer;
