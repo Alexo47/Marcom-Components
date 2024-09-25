@@ -17,7 +17,10 @@ def index(request):
     applied_filters = {}
 
     # Check if the request is a search request (i.e., triggered by the 'Search' button)
-    if request.GET:
+    search_triggered = request.GET.get('search_triggered', None)
+
+    if search_triggered:
+        # Search is triggered, process the filters and fetch components
         domain = request.GET.getlist('comp_domain')
         about = request.GET.getlist('comp_about')
         context = request.GET.getlist('comp_context')
@@ -65,11 +68,9 @@ def index(request):
         with driver.session() as session:
             components = session.run(query).data()
 
+    # No search is triggered, and no components are fetched.
     else:
-        # Handle the no-filter case: when no filters are selected, return all components
-        query = "MATCH (c:Component) RETURN c.comp_name AS name, c.comp_domain AS domain, c.comp_about AS about, c.comp_context AS context, c.comp_size AS size, c.comp_content AS content"
-        with driver.session() as session:
-            components = session.run(query).data()
+        applied_filters['Status'] = "No search triggered. Please select filters and search."
 
     # Render the template with the results and applied filters
     return render(request, 'marcomapp/index.html', {'components': components, 'applied_filters': applied_filters})
